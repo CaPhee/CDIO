@@ -1,23 +1,99 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+  home: "Home"
+  edit: "Edit"
+  pofile: "profile"
+  logout: "Logout"
+  login: "Login"
+  notifications: "Notifications"
+  wellcome_to: "Welcome to Tourism Review  System"
+  wellcome: "Welcome to Tourism Review  System , %{name}!"
+  wellcome_back: "Welcome back, %{name}!"
+  user_not_found: "User not found!!!"
+  the: "the"
+  sigin_up_now: "Sign up now!"
+  birdth_day: "Birdthday"
+  address: "Address"
+  admin: "Admin"
+  e: "Tourism Review "
+  nav: "Toggle navigation"
+  signup: "Sign up"
+  login_fail: "Invalid email/password combination"
+  goodbye: "Goodbye"
+  goodbye: "Goodbye, %{name}"
+  male: "Male"
+  female: "Female"
+  gay: "Gay"
+  lesbian: "Lesbian"
+  updated: "Updated"
+  error: "error"
+  user_not_found: "User not found!"
+  please_login: "Please login!"
+  access_denied: "Access denied!"
+  correct_user: "User not correct!"
+  user_not_correct: "User not correct."
+  search: "Search"
+  user: "User"
+  confirm_delete: "Are you sure to delete : %{type} : %{name}?"
+  failed_connect_to_server: "Failde to connect to server"
+  delete: "Delete"
+  search_placeholder: "Enter here"
+  show: "show"
+  error: "error"
+  created_at: "created"
+  created_category: "Created category: %{name}"
+  deleted: "Deleted"
+  delete_failed: "Delete failed"
+  correct_user: "User is not correct!"
+  add_new: "Add new"
+  not_update: "Not update"
+  save: "Save"
+  finish: "Finish"
+  follow: "Follow"
+  unfollow: "Unfollow"
+  layouts:
+    header:
+      categories: "Categories"
+      words: "Words"
+      users: "Users"
+      lessons: "Lessons"
+  shard:
+    error_message: "The form contains"
+  layouts:
+    login:
+      login: "Log in"
+      new: "New user?"
+      login: "Log in"
+      signup: "Sign up now!"
+      close: "Close"
+      remember_me: "Remember me"
+  users:
+    show:
+      title: "User | %{name}"
+      activities: "Activities"
+    edit:
+      title: "Edit profile"
+      btn_text: "Update my profile"
+      update: "Update your profile"
+      failed: "Failde to delete user %{name}"
+    new:
+      title: "Sign up"
+      button_text: "Create my account"
+    index:
+      title: "All Users"
+      all: "All users"
+    user:
+      follow: "Follow"
+    user_info:
+      birthday: "Birthday : %{birthday}"
+      address: "Address : %{address}"
+      following: "following"
+      followers: "followers"
+    users:
+      deleted: "User : %{name} be deleted"
+      failed: "Failde to delete user %{name}"
+      placeholder: "Enter here"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
