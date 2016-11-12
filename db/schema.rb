@@ -43,16 +43,17 @@ ActiveRecord::Schema.define(version: 20161024080337) do
     t.text     "dislike_details", limit: 65535
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["posts_id"], name: "fk_rails_581572ac1f", using: :btree
-    t.index ["user_id"], name: "fk_rails_03de2dc08c", using: :btree
+    t.index ["posts_id"], name: "index_comments_on_posts_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "id_user"
-    t.integer  "id_followed"
+    t.integer  "user_id"
+    t.integer  "followed_id"
     t.integer  "follow_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_follows_on_user_id", using: :btree
   end
 
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -65,7 +66,8 @@ ActiveRecord::Schema.define(version: 20161024080337) do
     t.integer  "owner_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.index ["area_id"], name: "fk_rails_f919ce4afc", using: :btree
+    t.index ["area_id"], name: "index_locations_on_area_id", using: :btree
+    t.index ["user_id"], name: "index_locations_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -80,25 +82,20 @@ ActiveRecord::Schema.define(version: 20161024080337) do
     t.text     "dislike_details", limit: 65535
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["location_id"], name: "fk_rails_ccec1da3aa", using: :btree
-    t.index ["user_id"], name: "fk_rails_5b5ddfd518", using: :btree
+    t.index ["location_id"], name: "index_posts_on_location_id", using: :btree
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
   create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.text     "description",    limit: 65535
+    t.text     "description", limit: 65535
     t.integer  "report_id"
-    t.string   "report_id_type"
+    t.string   "report_type"
     t.boolean  "checked"
     t.boolean  "is_critical"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "role_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_reports_on_user_id", using: :btree
   end
 
   create_table "services", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -108,10 +105,9 @@ ActiveRecord::Schema.define(version: 20161024080337) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "username"
+    t.string   "email"
     t.string   "password_digest"
-    t.string   "protected_token"
-    t.integer  "role_id"
+    t.string   "protected_digest"
     t.boolean  "is_active"
     t.boolean  "is_lock"
     t.string   "name"
@@ -119,15 +115,12 @@ ActiveRecord::Schema.define(version: 20161024080337) do
     t.string   "sex"
     t.string   "address"
     t.string   "phone"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
+    t.string   "avatar"
+    t.boolean  "admin"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_foreign_key "comments", "posts", column: "posts_id", on_delete: :cascade
   add_foreign_key "comments", "users", on_delete: :cascade
-  add_foreign_key "locations", "areas", on_delete: :cascade
-  add_foreign_key "posts", "locations", on_delete: :cascade
-  add_foreign_key "posts", "users", on_delete: :cascade
-  add_foreign_key "users", "roles"
 end

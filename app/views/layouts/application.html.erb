@@ -66,17 +66,60 @@
 			    </form>
             </li>
           </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	      	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	    </ul>
+        <ul class="nav navbar-nav navbar-right" >
+        <% if logged_in? %>
+          <li class="dropdown" >
+            <a href="#"
+              class="dropdown-toggle hear-item"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true" aria-expanded="false" >
+              <i class="glyphicon glyphicon-user" ></i>
+              <%= current_user.name %>
+              <span class="caret" ></span>
+            </a>
+            <ul class="dropdown-menu" >
+              <li>
+                <%= link_to edit_user_path(current_user) do %>
+                  <%= t :edit %>
+                  <%= t :profile %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to t(:logout), logout_path %>
+              </li>
+              <li role="separator" class="divider" ></li>
+              <li class="dropdown-header" >
+                <%= t :notifications %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to signup_path, class: "hear-item" do %>
+              <i class="glyphicon glyphicon-edit" ></i>
+              <%= t :signup %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to login_path,
+              data: {toggle: "modal", target: "#login-modal"},
+              class: "hear-item" do %>
+              <i class="glyphicon glyphicon-log-in" ></i>
+              <%= t :login %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
+    <%= render "layouts/login" %>
     <div class="container" style="margin:100px 100px 0 100px;">
-
-
+      <% flash.each do |message_type, message| %>
+        <%= content_tag :div, message.html_safe,
+          class: "alert alert-#{message_type}" %>
+      <% end %>
     	<%= yield %>
 
 
@@ -126,9 +169,6 @@
               </div>
             </div>
         </footer>
-	     <script type="text/javascript">
-
-       </script>
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

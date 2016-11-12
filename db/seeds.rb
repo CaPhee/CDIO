@@ -1,1 +1,27 @@
-u = User.create username: "tien123", password_digest: "123123", role_id: 1, name: "2222", birthday: Time.now, sex: "les", address: "ssss", phone: "12312312",is_active: true, is_lock: false
+User.create!(
+  name: "Triple Tee",
+  email: "tien@framgia.com",
+  address: "Earth",
+  birthday: "1995/03/13",
+  sex: "Male",
+  phone: "0935253027",
+  password: "12312311",
+  password_confirmation: "12312311",
+  admin: true,
+)
+50.times do |n|
+  name = Faker::Name.name
+  email = "example-#{n+1}@framgia.org"
+  password = "123123"
+  phone= 93525000 +n+1
+  User.create!(
+    name: name,
+    email: email,
+    address: "Galaxy",
+    birthday: "1995/03/03",
+    sex: "Male",
+    phone: phone.to_s,
+    password: password,
+    password_confirmation: password,
+  )
+end
