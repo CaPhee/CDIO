@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  description: MyText
+  report_id: 1
+  report_id_type: MyString
+  checked: false
+  is_critical: false
+
+two:
+  user_id: 1
+  description: MyText
+  report_id: 1
+  report_id_type: MyString
+  checked: false
+  is_critical: false

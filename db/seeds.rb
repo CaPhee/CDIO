@@ -1,0 +1,1 @@
+u = User.create username: "tien123", password_digest: "123123", role_id: 1, name: "2222", birthday: Time.now, sex: "les", address: "ssss", phone: "12312312",is_active: true, is_lock: false

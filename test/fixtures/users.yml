@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  password_digest: MyString
+  protected_token: MyString
+  role: one
+  is_active: false
+  is_lock: false
+  name: MyString
+  birthday: 2016-10-24
+  sex: MyString
+  address: MyString
+  phone: MyString
+
+two:
+  username: MyString
+  password_digest: MyString
+  protected_token: MyString
+  role: two
+  is_active: false
+  is_lock: false
+  name: MyString
+  birthday: 2016-10-24
+  sex: MyString
+  address: MyString
+  phone: MyString
