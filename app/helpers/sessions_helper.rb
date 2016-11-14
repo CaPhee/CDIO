@@ -26,7 +26,7 @@ module SessionsHelper
   end
 
   def remember user
-    if params[:session][:remember_me] == Settings.remember_me
+    if params[:session][:remember_me] == 1
       user.remember
       cookies.permanent.signed[:user_id] = user.id
       cookies.permanent[:remember_token] = user.protected_token
