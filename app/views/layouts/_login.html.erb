@@ -13,11 +13,11 @@
         <%= form_for :session, url: login_path do |f| %>
           <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, class: "form-control" %>
+            <%= f.email_field :email, value: 'quy@gmail.com', class: "form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control" %>
+            <%= f.password_field :password, value:'12312311', class: "form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :remember_me, class: "checkbox inline",

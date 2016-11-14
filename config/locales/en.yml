@@ -67,6 +67,10 @@ en:
       signup: "Sign up now!"
       close: "Close"
       remember_me: "Remember me"
+  posts:
+    create:
+      success: "You have created a post"
+      failed: "You can't create a post"
   users:
     show:
       title: "User | %{name}"

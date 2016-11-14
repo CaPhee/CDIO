@@ -13,4 +13,10 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
 
+  resources :posts
+  get "/new" => "posts#new"
+  post "/new" => "posts#create"
+  get "show/:id" => "posts#show", as: 'post_show'
+
+
 end
