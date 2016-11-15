@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   validates :email, :presence => true, :uniqueness => true, :length => { :in => 8..255 }
   has_many :posts
+  has_many :comments
   attr_accessor :protected_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {maximum: 50}

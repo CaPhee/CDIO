@@ -53,7 +53,7 @@ end
   title = Faker::Name.title
   content = Faker::Lorem.paragraph
   time = Faker::Time.between(DateTime.now - 1, DateTime.now)
-  user = Faker::Number.between(1, 50) 
+  user = Faker::Number.between(1, 50)
   post = Post.create!(
     title: title,
     content: content,
@@ -67,7 +67,7 @@ end
   )
   cmt = Comment.create!(
     user_id: user,
-    posts_id: post.id,
+    post_id: post.id,
     comment: Faker::Lorem.paragraph(2),
     like: 0,
     dislike: 0,

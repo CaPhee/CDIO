@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
   resources :posts
+  resources :comments
   get "/new" => "posts#new"
   post "/new" => "posts#create"
   get "show/:id" => "posts#show", as: 'post_show'

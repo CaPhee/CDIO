@@ -60,7 +60,7 @@
             </div>
             <!-- /.col-lg-12 -->
         </div>
-        <!-- /.row -->     
+        <!-- /.row -->
         <div class="col-md-12">
         <h2 class="pull-left">Posts</h2>
             <div class="pull-right text-center">
@@ -70,7 +70,7 @@
         <hr>
         <% @posts.in_groups_of(3, false).each do |group|  %>
         <!-- Content Row -->
-        <div class="row">        
+        <div class="row">
         <% group.each do |n| %>
             <!-- /.col-md-4 col-sm-6 -->
             <div class="col-md-4 col-sm-6">
@@ -92,7 +92,7 @@
                         <button class="fa fa-thumbs-o-down votes"></button> <%=n.dislike%></div>
                         <div style="clear:both;"></div>
                       </div>
-                        
+
                       <div class="input-group">
                         <div class="input-group-btn">
                         <button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
@@ -108,8 +108,8 @@
         <%end%>
         </div>
         <hr>
-        <%end%> 
-        <!-- /.row -->         
+        <%end%>
+        <!-- /.row -->
     <div class="col-md-12">
         <div class="pull-right text-center">
          <%= will_paginate @posts %>
