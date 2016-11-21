@@ -80,6 +80,8 @@ en:
       btn_text: "Update my profile"
       update: "Update your profile"
       failed: "Failde to delete user %{name}"
+    profile:
+      label: "Profile"
     new:
       title: "Sign up"
       button_text: "Create my account"

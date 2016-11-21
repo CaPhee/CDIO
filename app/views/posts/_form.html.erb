@@ -1,6 +1,10 @@
 <%= form_for @post, url: {action: "create"}, html: { multipart: true } do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class="form-group"">
+    <%= f.label :location_id %>
+    <%= f.select :location_id, Location.all.collect { |p| [ p.location_name, p.id ] }, include_blank: "Location", class: "bootstrap-select"%>
+  </div>
+  <div class="form-group"">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
