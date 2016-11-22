@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:destroy, :edit, :update]
+  before_action :logged_in_user, only: [:destroy, :edit, :update, :profile]
   before_action :load_user, except: [:new, :create, :index]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :profile]
   before_action :verify_admin, only: [:destroy]
 
   def new
@@ -30,6 +30,9 @@ class UsersController < ApplicationController
       end
     end
     Lesson.unscoped @activities
+  end
+
+  def profile
   end
 
   def edit
