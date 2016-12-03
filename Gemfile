@@ -28,6 +28,8 @@ gem "font-awesome-rails"
 gem 'mini_magick'
 gem 'ckeditor'
 gem "paperclip"
+gem 'kaminari'
+gem 'rails_admin'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
