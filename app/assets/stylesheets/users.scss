@@ -11,15 +11,23 @@
     width:100%;
     }
     
-
-
+.panel{
+}
+.tab-content{
+    padding: 20px;
+    border-top:2px solid #000000 ;
+    border-bottom:2px solid #000000  ;
+    border-left: 2px solid #000000;
+    border-right: 2px solid  #000000;  
+    border-radius: 20px;
+}
 .tabnav{
-      margin-top:-18px;
+      margin:-2px -1px 0 -1px;
     }
 
 .btn-nav {
-   color: #e92d00;
-    background-color: #fff;
+   color: #fff;
+    background-color: #20272f;
     border: 1px solid #e0e1db;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -27,19 +35,17 @@
 }
 
 .btn-nav:hover {
-     color: green;
-     cursor: pointer;
-    -webkit-transition: color 1s; /* For Safari 3.1 to 6.0 */
-    transition: color 1s;
+     color: white;
+     background-color: #191e22;
 }
 .btn-nav.active {
-    background: grey;
-    color: #1dcaff;
+    background: #fff;
+    color: red;
     padding: auto;
-    border-top:2px solid #1dcaff ;
-    border-bottom:2px solid #1dcaff  ;
-    border-left: 2px solid #1dcaff;
-    border-right: 2px solid  #1dcaff;
+    border-top:2px solid red ;
+    border-bottom:2px solid red  ;
+    border-left: 2px solid red;
+    border-right: 2px solid  red;
     box-sizing:border-box;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 	root 'home#index'
 
-    
+    get '/404' ,to: redirect('/404') , as: 'not_found'
+    get '/422', to: redirect('/422'), as: 'change'
+    get '/500', to: redirect('/500')
 
   resources :users
   get "/profile/:id", to: "users#profile", as: "profile"

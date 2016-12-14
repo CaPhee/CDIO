@@ -7,8 +7,7 @@ capybara-*.html
 /.bundle
 /vendor/bundle
 /log/*
-/tmp/*
-/test/*
+test/
 /db/*.sqlite3
 /public/system/*
 /coverage/
@@ -32,3 +31,8 @@ app/assets/javascripts/i18n/translations.js
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+Gemfile.lock
+tmp/
+tmp/cache/assets/sprockets/v3.0/
+*.cache
+log/development.log
