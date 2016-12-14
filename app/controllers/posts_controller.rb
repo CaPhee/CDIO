@@ -28,6 +28,7 @@ class PostsController < ApplicationController
     end
 
     def search
-        render :text => 'Not Found', :status => '404'
+        #render :text  => "", :status => 422
+        render :file => '/public/500.html'
     end
 end
