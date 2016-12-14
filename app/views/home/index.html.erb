@@ -37,9 +37,9 @@
                                     <%=image_tag("banner/banner8.jpg", class: "img-responsive")%>
                                 </div>
                             </div>
-                            <!-- main slider carousel nav controls --> <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
-
-                            <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+                            <!-- main slider carousel nav controls --> 
+                            <a class="carousel-control left" href="#myCarousel" data-slide="prev" style="line-height: 22;">‹</a>
+                            <a class="carousel-control right" href="#myCarousel" data-slide="next" style="line-height: 22;">›</a>
                         </div>
                     </div>
 
@@ -81,10 +81,9 @@
                       <div class="clearfix"></div>
                       <hr>
 
-                      <p class="form-group"><%=n.content.split('.')[1].html_safe%></p>
+                      <p><%=n.content%></p>
                       <b class="pull-right"><%=n.user.name%></b>
                       <hr>
-                      <form>
                       <div style="display: inline; margin: 1px;" >
                         <div class="pull-left">
                         <button class="fa fa-thumbs-o-up votes"></button> <%=n.like%></div>
@@ -92,18 +91,18 @@
                         <button class="fa fa-thumbs-o-down votes"></button> <%=n.dislike%></div>
                         <div style="clear:both;"></div>
                       </div>
-
+                      <%= form_for n.comments.build do |f| %>
                       <div class="input-group">
                         <div class="input-group-btn">
-                        <button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Add a comment..">
-                      </div>
-                      </form>
 
+                            <%= f.button   fa_icon("comment-o"),class: "btn btn-primary form-control" ,type: "submit"%>
+                        </div>
+                        <%= f.text_field :comment, class: "form-control", placeholder: "Add a comment.."  %>
+                      <% end %>
                     </div>
                  </div>
 
+            </div>
             </div>
         <%end%>
         </div>

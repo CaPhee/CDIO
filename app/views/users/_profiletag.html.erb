@@ -1,0 +1,84 @@
+ <div class="container">
+<div class="form-horizontal">
+
+	<div class="col-md-6 row">
+	<!-- Form Name -->
+	<legend>User profile form requirement</legend>
+
+	<!-- Text input-->
+
+	<div class="form-group row">
+	 	<label class="col-md-4 control-label" for="email">Email: </label>  
+		<div class="col-md-8">
+			<div class="input-group ">
+				<div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+				<input  name="email" disabled="true" type="text" value="<%= current_user.email %>" class="form-control input-md " >
+			</div>    
+		</div>  
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group row">
+		<label class="col-md-4 control-label" for="name">Name: </label>  
+		<div class="col-md-8">
+			<div class="input-group">
+			   <div class="input-group-addon"><i class="fa fa-male" style="font-size: 20px;"></i></div>
+			  <input  name="name" disabled="true" type="text" value="<%= current_user.name %> " class="form-control input-md " >
+			  </div>
+		</div>
+	</div>
+	<!-- Text input-->
+	<div class="form-group row">
+		<label class="col-md-4 control-label" for="birthday">Birthday: </label>  
+		<div class="col-md-8">
+			<div class="input-group">
+			   <div class="input-group-addon"><i class="fa fa-birthday-cake"></i></div>
+			  <input  name="birthday" disabled="true" type="text" value="<%= current_user.birthday %>" class="form-control input-md " >
+			  </div>
+
+		</div>
+	</div>
+	<!-- Text input-->
+	<div class="form-group row">
+		<label class="col-md-4 control-label" for="sex">Sex: </label>  
+		<div class="col-md-8">
+			<div class="input-group">
+			   <div class="input-group-addon"><i class="fa fa-male" style="font-size: 20px;"></i></div>
+			  <input  name="sex" disabled="true" type="text" value="<%= current_user.sex %>" class="form-control input-md " >
+			  </div>
+
+		</div>
+	</div>
+	<!-- Text input-->
+	<div class="form-group row">
+		<label class="col-md-4 control-label" for="address">Address: </label>  
+		<div class="col-md-8">
+			<div class="input-group">
+			   <div class="input-group-addon"><i class="fa fa-sticky-note-o"></i></div>
+			  <input  name="address" disabled="true" type="text" value="<%= current_user.address %>" class="form-control input-md " >
+			  </div>
+
+		</div>
+	</div>
+	<!-- Text input-->
+	<div class="form-group row">
+		<label class="col-md-4 control-label" for="phone">Phone: </label>  
+		<div class="col-md-8">
+			<div class="input-group">
+			   <div class="input-group-addon"><i class="fa fa-birthday-cake"></i></div>
+			  <input  name="phone" disabled="true" type="text" value="<%= current_user.phone %>" class="form-control input-md " >
+			  </div>
+
+		</div>
+	</div>
+	</div>
+	<div class="col-md-2 hidden-xs">
+		<img src="<%= current_user.avatar%>" class="img-responsive img-thumbnail" style="margin-bottom:20px;">
+
+	<a class="btn btn-primary" role="button" href="#" >Edit Profile</a>
+	 </div>
+</div>
+
+
+
+</div>

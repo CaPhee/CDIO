@@ -1,0 +1,104 @@
+<% provide :title, "Profile" %>
+<% provide :button_text, "Submit" %>
+<div class="card hovercard" >
+        <div class="card-background">
+            <img class="card-bkimg" alt="" src="<%= current_user.avatar%>">
+        </div>
+        <div class="useravatar">
+            <img alt="" src="<%= current_user.avatar%>">
+        </div>
+        <div class="card-info"> <span class="card-title"><%= current_user.name%></span>
+
+        </div>
+</div>
+<div  class="panel btn-pref btn-group btn-group-justified " role="group" style="height:720px;wight:900px; background-color:#adc;"  >
+
+         <div class="tabnav">
+                   <div class="btn-group btn-group-justified ">
+                    <div class="btn-group  " role="group"> 
+                        <button id="b1" type="button" class="btn btn-nav" href="#tab1" data-toggle="tab" >
+                        <div class="visible" >Profile  <span class="glyphicon glyphicon-user" aria-hidden="true"> </span></div>
+                         </button>
+                      </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-nav" href="#tab2" data-toggle="tab" >
+                         <div class="visible">Posts <span class="glyphicon glyphicon glyphicon-duplicate" aria-hidden="true"></span></div>
+                        </button>
+                    </div>
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-nav" href="#tab3" data-toggle="tab">
+                             <div class="visible">Work <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></div>
+                        </button>
+                    </div>
+                         
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-nav" href="#tab4" data-toggle="tab">
+                            
+                        <div class="visible">Favorites <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></div>
+                        </button>
+                    </div>
+                     
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-nav" href="#tab5" data-toggle="tab">
+                             <div class="visible">Follow <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                        </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-nav" href="#tab6" data-toggle="tab">
+                            <div class="visible">Message <span class="glyphicon glyphicon-bell"  aria-hidden="true"></span></div>
+                        </button>
+                    </div>
+               </div>
+            </div>
+
+        <div  class="tab-content " style= "margin-top:10px; " >
+              <div class="tab-pane panel  active" id="tab1"  >
+                    <div class="row">
+                          <div class="col-md-6 col-md-offset-3" style= "margin-top: 20px; margin-bottom: 20px;" >
+                            <%= render "form" %>
+                          </div>                        
+                    </div>
+               </div>
+               <div class="tab-pane panel " id="tab2" >
+               <div class="container">
+                           <div class="content-container clearfix">
+                               <div class="col-md-12">
+                                   <input type="search" placeholder="Search Post" class="form-control mail-search" />                           
+                                   <ul class="mail-list">
+                                    <% post = Post.all.where(user_id: current_user) %>
+                                    <% post.each do |p| %>
+                                        <li>
+                                               <%= link_to post_show_path(:id => p.id) do %>                                   
+                                                <b class="mail-sender"><%= p.title %></b>
+                                               <span class="mail-subject"> Posted on  <%= p.created_at.strftime("%F") %> at <%=p.created_at.strftime("%I:%M%p") %></span>
+                                               <span class="mail-message-preview">You have ten more subscriptions click her...</span>
+                                                <%end %>
+                                       </li>
+                                    <%end %>
+                                    </ul>
+                                    </div>
+                           </div>
+                       </div>
+                </div>
+                <div class="tab-pane panel " id="tab3" >
+                </div>
+                <div class="tab-pane panel fade in " id="tab4" >
+                    <form role="form" class="form-inline" >
+                        <h2> <br> ... Tab 4</h2>
+                     </form>
+                </div>
+                <div class="tab-pane panel fade in " id="tab5" >
+                    <form role="form" class="form-inline">
+                        <h2> <br> ... Tab 5</h2>
+                     </form>
+                </div>
+                <div class="tab-pane panel fade in " id="tab6" >
+                    <form role="form" class="form-inline">
+                        <h2> <br> ... Tab 6</h2>
+                     </form>
+                </div>
+         </div>
+
+            
+</div>
+

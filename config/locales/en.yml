@@ -3,6 +3,9 @@ en:
     actions:
       dashboard:
         title: "Dashboard"
+   actions:
+    dashboard:
+     title: "Dashboard"
   hello: "Hello world"
   home: "Home"
   edit: "Edit"
