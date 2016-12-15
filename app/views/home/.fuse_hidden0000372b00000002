@@ -1,0 +1,117 @@
+<% provide :title, "Home" %>
+        <!-- Heading Row -->
+        <div class="container">
+        <a class="btn btn-default pull-right" type="button" href="<%= url_for(action: 'new', controller: '/posts') %>" >New Post</a>
+        <h1>Hi Everyone</h1>
+    <!-- main slider carousel -->
+
+        <div class="row">
+            <div class="col-md-12" id="slider">
+
+                    <div class="col-md-12" id="carousel-bounding-box">
+                        <div id="myCarousel" class="carousel slide">
+                            <!-- main slider carousel items -->
+                            <div class="carousel-inner">
+                                <div class="active item" data-slide-number="0">
+                                    <%=image_tag("banner/banner1", class: "img-responsive")%>
+                                </div>
+                                <div class="item" data-slide-number="1">
+                                  <%=image_tag("banner/banner2", class: "img-responsive")%>
+                                </div>
+                                <div class="item" data-slide-number="2">
+                                    <%=image_tag("banner/banner3.jpg", class: "img-responsive")%>
+                                </div>
+                                <div class="item" data-slide-number="3">
+                                    <%=image_tag("banner/banner4.jpg", class: "img-responsive")%>
+                                </div>
+                                <div class="item" data-slide-number="4">
+                                   <%=image_tag("banner/banner5.jpg", class: "img-responsive")%>
+                                </div>
+                                <div class="item" data-slide-number="5">
+                                    <%=image_tag("banner/banner6.jpg", class: "img-responsive")%>
+                                </div>
+                                <div class="item" data-slide-number="6">
+                                    <%=image_tag("banner/banner7.jpg", class: "img-responsive")%>
+                                </div>
+                                <div class="item" data-slide-number="7">
+                                    <%=image_tag("banner/banner8.jpg", class: "img-responsive")%>
+                                </div>
+                            </div>
+                            <!-- main slider carousel nav controls --> 
+                            <a class="carousel-control left" href="#myCarousel" data-slide="prev" style="line-height: 22;">‹</a>
+                            <a class="carousel-control right" href="#myCarousel" data-slide="next" style="line-height: 22;">›</a>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    <!--/main slider carousel-->
+
+        </div>
+        <!-- /.container -->
+        <hr>
+
+        <!-- Call to Action Well -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-info alert-dismissable">
+                    This is a well that is a great spot for a business tagline or phone number for easy access!
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="col-md-12">
+        <h2 class="pull-left">Posts</h2>
+            <div class="pull-right text-center">
+             <%= will_paginate @posts %>
+            </div>
+        </div>
+        <hr>
+        <% @posts.in_groups_of(3, false).each do |group|  %>
+        <!-- Content Row -->
+        <div class="row">
+        <% group.each do |n| %>
+            <!-- /.col-md-4 col-sm-6 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="panel panel-default">
+                   <div class="panel-heading"><%= link_to "View more" ,post_show_path(:id => n.id),:class => "pull-right"%> <h4><%=n.id%>.<%=n.title%></h4></div>
+                    <div class="panel-body">
+                      <%=image_tag("banner/banner7.jpg", size: "150x150", class: "img-circle pull-right")%><a href="#">Keyword:<%=n.location_id%></a>
+                      <div class="clearfix"></div>
+                      <hr>
+
+                      <p><%=n.content%></p>
+                      <b class="pull-right"><%=n.user.name%></b>
+                      <hr>
+                      <div style="display: inline; margin: 1px;" >
+                        <div class="pull-left">
+                        <button class="fa fa-thumbs-o-up votes"></button> <%=n.like%></div>
+                        <div  class="pull-right">
+                        <button class="fa fa-thumbs-o-down votes"></button> <%=n.dislike%></div>
+                        <div style="clear:both;"></div>
+                      </div>
+                      <%= form_for n.comments.build do |f| %>
+                      <div class="input-group">
+                        <div class="input-group-btn">
+
+                            <%= f.button   fa_icon("comment-o"),class: "btn btn-primary form-control" ,type: "submit"%>
+                        </div>
+                        <%= f.text_field :comment, class: "form-control", placeholder: "Add a comment.."  %>
+                      <% end %>
+                    </div>
+                 </div>
+
+            </div>
+            </div>
+        <%end%>
+        </div>
+        <hr>
+        <%end%>
+        <!-- /.row -->
+    <div class="col-md-12">
+        <div class="pull-right text-center">
+         <%= will_paginate @posts %>
+        </div>
+    </div>
+

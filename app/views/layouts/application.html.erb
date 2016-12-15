@@ -44,10 +44,8 @@
             <li>
             <%= form_tag("/search", method: "post", class: "navbar-form", html: { multipart: true }) do |f| %>
 			        <div class="form-group" style="display:inline;">
-               <%= select_tag :location_id, options_for_select(Location.all.collect{ |l| [l.location_name, l.id] }), class: "form-control", required: true,include_blank: "Địa điểm" %>
-                <%= select_tag :location_id, options_for_select(Location.all.collect{ |l| [l.location_name, l.id] }), class: "form-control", required: true,include_blank: "Hoạt động" %>
                 <div class="input-group" ">
-                                <%= text_field_tag 'key' , nil , class: "form-control",required: true, maxlength: 20, placeholder: 'Search here', size: 20%>
+                                <%= text_field_tag 'key' , nil , class: "form-control",required: true, maxlength: 20, placeholder: 'Search here', size: 40%>
 			            <div class="input-group-btn">
                       <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                   </div>
@@ -160,5 +158,6 @@
             </div>
         </footer>
    <%= debug(params) if Rails.env.development? %>
+   <!%= debug(params) if Rails.env.development? %>
   </body>
 </html>

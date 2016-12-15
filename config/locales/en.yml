@@ -1,8 +1,5 @@
 en:
   admin:
-    actions:
-      dashboard:
-        title: "Dashboard"
    actions:
     dashboard:
      title: "Dashboard"

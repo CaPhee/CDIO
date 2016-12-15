@@ -74,8 +74,8 @@
 	</div>
 	<div class="col-md-2 hidden-xs">
 		<img src="<%= current_user.avatar%>" class="img-responsive img-thumbnail" style="margin-bottom:20px;">
-
 	<a class="btn btn-primary" role="button" href="#" >Edit Profile</a>
+	<%= link_to "Edit Profile", edit_user_path,:class => "btn btn-primary" ,:remote => true %>
 	 </div>
 </div>
 

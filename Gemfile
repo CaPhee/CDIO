@@ -28,6 +28,10 @@ gem "font-awesome-rails"
 gem 'mini_magick'
 gem 'ckeditor'
 gem "paperclip"
+
+#paginate    
+gem 'ransack'   
+gem 'bootstrap-kaminari-views'
 gem 'kaminari'
 gem 'rails_admin'
 

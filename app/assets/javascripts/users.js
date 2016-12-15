@@ -59,3 +59,4 @@ $(document).ready(function(){
         labelEndTop: 5
     });
 });
+$('#edit').html("<%= escape_javascript(render :partial => 'edit') %>");
