@@ -1,5 +1,16 @@
 <% provide :title, "Profile" %>
 <% provide :button_text, "Submit" %>
+<style>
+      .btn-nav {
+   color: #fff;
+    background-color: #191e22;
+    border: 1px solid #e0e1db;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+</style>
 <div class="card hovercard" >
         <div class="card-background">
             <img class="card-bkimg" alt="" src="<%= current_user.avatar%>">
@@ -16,6 +27,7 @@
               <div class="tabnav">
                    <div class="btn-group btn-group-justified ">
                     <div class="btn-group  " role="group"> 
+                    <div class="btn-group" role="group" >
                         <button id="b1" type="button" class="btn-nav btn" href="#tab1" data-toggle="tab" >
                         <div class="visible" >Profile  <span class="glyphicon glyphicon-user" aria-hidden="true"> </span></div>
                          </button>
@@ -55,6 +67,7 @@
               <div class="tab-pane panel  active" id="tab1"  >
                     <div class="row">
                           <div class="col-md-6 col-md-offset-1" style= "margin-top: 20px; margin-bottom: 20px;" >
+                          <div class="col-md-6 col-md-offset-1" style= "margin-top: 20px; margin-bottom: 20px;" id="edit">
                             <%= render "profiletag" %>
                           </div>                        
                     </div>

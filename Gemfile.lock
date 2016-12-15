@@ -1,6 +1,6 @@
 remote: https://rubygems.org/
   specs:
-    CFPropertyList (2.3.3)
+    CFPropertyList (2.3.4)
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
       nio4r (~> 1.2)
@@ -40,11 +40,14 @@ remote: https://rubygems.org/
       tzinfo (~> 1.1)
     ansi (1.5.0)
     arel (7.1.4)
-    autoprefixer-rails (6.5.3)
+    autoprefixer-rails (6.5.4)
       execjs
     bcrypt (3.1.11)
     bcrypt (3.1.11-x64-mingw32)
     bcrypt (3.1.11-x86-mingw32)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -58,7 +61,7 @@ remote: https://rubygems.org/
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    ckeditor (4.2.0)
+    ckeditor (4.2.1)
       cocaine
       orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
@@ -72,7 +75,7 @@ remote: https://rubygems.org/
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.10.0)
+    coffee-script-source (1.11.1)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     erubis (2.7.0)
@@ -122,7 +125,7 @@ remote: https://rubygems.org/
     fog-atmos (0.1.0)
       fog-core
       fog-xml
-    fog-aws (0.12.0)
+    fog-aws (1.0.0)
       fog-core (~> 1.38)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
@@ -156,7 +159,7 @@ remote: https://rubygems.org/
       multi_json (~> 1.10)
     fog-local (0.3.1)
       fog-core (~> 1.27)
-    fog-openstack (0.1.17)
+    fog-openstack (0.1.18)
       fog-core (>= 1.40)
       fog-json (>= 1.0)
       ipaddress (>= 0.8)
@@ -201,7 +204,7 @@ remote: https://rubygems.org/
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (1.5.1)
+    fog-vsphere (1.5.2)
       fog-core
       rbvmomi (~> 1.9)
     fog-xenserver (0.2.3)
@@ -210,7 +213,7 @@ remote: https://rubygems.org/
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
-    font-awesome-rails (4.7.0.0)
+    font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
     globalid (0.3.7)
@@ -259,9 +262,9 @@ remote: https://rubygems.org/
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
-    mini_magick (4.5.1)
+    mini_magick (4.6.0)
     mini_portile2 (2.1.0)
-    minitest (5.9.1)
+    minitest (5.10.1)
     minitest-reporters (1.1.9)
       ansi
       builder
@@ -293,6 +296,8 @@ remote: https://rubygems.org/
     pg (0.18.4)
     pg (0.18.4-x64-mingw32)
     pg (0.18.4-x86-mingw32)
+    polyamorous (1.3.1)
+      activerecord (>= 3.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -346,7 +351,13 @@ remote: https://rubygems.org/
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (11.3.0)
+    rake (12.0.0)
+    ransack (1.8.2)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.3)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -377,7 +388,7 @@ remote: https://rubygems.org/
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    thor (0.19.1)
+    thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.5)
     trollop (2.1.2)
@@ -386,7 +397,7 @@ remote: https://rubygems.org/
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2016.9)
+    tzinfo-data (1.2016.10)
       tzinfo (>= 1.0.0)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
@@ -407,6 +418,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (= 3.1.11)
+  bootstrap-kaminari-views
   bootstrap-sass (= 3.3.6)
   bootstrap-will_paginate (= 0.0.10)
   byebug (= 9.0.0)
@@ -432,6 +444,7 @@ DEPENDENCIES
   rails (= 5.0.0.1)
   rails-controller-testing (= 0.1.1)
   rails_admin
+  ransack
   sass-rails (= 5.0.6)
   spring (= 1.7.2)
   spring-watcher-listen (= 2.0.0)

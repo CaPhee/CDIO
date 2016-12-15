@@ -7,8 +7,12 @@ capybara-*.html
 /.bundle
 /vendor/bundle
 /log/*
+<<<<<<< f25619c21019be1ed8f79de11a0c68fe7051b6c8
 /tmp/*
 .test/*
+=======
+test/
+>>>>>>> fix paginate
 /db/*.sqlite3
 /public/system/*
 /coverage/
@@ -32,4 +36,12 @@ app/assets/javascripts/i18n/translations.js
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+<<<<<<< f25619c21019be1ed8f79de11a0c68fe7051b6c8
 .Gemfile.lock
+=======
+Gemfile.lock
+tmp/
+tmp/cache/assets/sprockets/v3.0/
+*.cache
+log/development.log
+>>>>>>> fix paginate

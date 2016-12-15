@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, PictureUploader
 
-  scope :search, ->keyword {where "name LIKE ?", "%#{keyword}%"}
+  #scope :search, ->keyword {where "name LIKE ?", "%#{keyword}%"}
 
   class << self
     def new_token
