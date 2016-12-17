@@ -23,25 +23,26 @@
 }
 .tabnav{
       margin:-2px -1px 0 -1px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius:  5px;
     }
 
 .btn-nav {
-   color: #fff;
-    background-color: #20272f;
+   color: #0902d8;
+    background-color: #a9bbd6;
     border: 1px solid #e0e1db;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+    box-sizing: border-box;  
 }
 
 .btn-nav:hover {
      color: white;
      background-color: #191e22;
-     background-color: #20272f;
 }
 .btn-nav.active {
     background: #fff;
-    color: red;
+    color: #f00;
     padding: auto;
     border-top:2px solid red ;
     border-bottom:2px solid red  ;
