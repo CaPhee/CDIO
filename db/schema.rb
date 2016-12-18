@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20161218010440) do
     t.text     "details",       limit: 65535
     t.integer  "user_id"
     t.integer  "owner_id"
+    t.string   "cover"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["area_id"], name: "index_locations_on_area_id", using: :btree

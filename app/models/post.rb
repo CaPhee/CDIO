@@ -4,5 +4,7 @@ class Post < ApplicationRecord
     has_many :comments
     has_many :images
     has_many :likes
+
+    paginates_per 9
 end
 

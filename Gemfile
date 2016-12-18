@@ -32,6 +32,9 @@ gem 'bootstrap-kaminari-views'
 gem 'kaminari'
 gem 'rails_admin'
 
+#social network
+gem 'shareable'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
