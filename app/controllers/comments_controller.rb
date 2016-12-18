@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @cmt = current_user.comments.build comment_params
     if @cmt.save
-      flash[:info] = "Thanh Cong"
+      flash[:info] = "Success"
       redirect_to @cmt.post
     else
         flash[:info] = @cmt.errors.full_messages.join(" ")

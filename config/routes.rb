@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   get "show/:id" => "posts#show", as: 'post_show'
   post "search" => "posts#search"
   resources :follows, only: [:create, :destroy]
-
+  resources :likes, only: [:create, :destroy]
 
 end

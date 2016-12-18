@@ -21,8 +21,8 @@ class UsersController < ApplicationController
 
   def show
     store_location
-    @followers = @user.followers.search_by_name(params[:key]).page params[:page]
-    @following = @user.following.search_by_name(params[:key]).page params[:page]
+    @followers = @user.followers.search_by_name(params[:key]).per_page_kaminari params[:page]
+    @following = @user.following.search_by_name(params[:key]).per_page_kaminari params[:page]
     if logged_in?
       @relationship = current_user.active_follows
         .find_or_initialize_by followed_id: @user.id

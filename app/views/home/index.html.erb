@@ -49,7 +49,7 @@
         </div>
     <!--/main slider carousel-->
 
-        </div>
+        </div>great
         <!-- /.container -->
         <hr>
 
@@ -66,7 +66,7 @@
         <div class="col-md-12">
         <h2 class="pull-left">Posts</h2>
             <div class="pull-right text-center">
-                <%= will_paginate @posts %>
+                <%= paginate @posts, theme: "twitter-bootstrap-3" %>
             </div>
         </div>
         <hr>
@@ -88,9 +88,7 @@
                       <hr>
                       <div style="display: inline; margin: 1px;" >
                         <div class="pull-left">
-                        <button class="fa fa-thumbs-o-up votes"></button> <%=n.like%></div>
-                        <div  class="pull-right">
-                        <button class="fa fa-thumbs-o-down votes"></button> <%=n.dislike%></div>
+                        <button class="fa fa-thumbs-o-up votes"></button> <%= n.likes.size || 0 %></div>
                         <div style="clear:both;"></div>
                       </div>
                         <% if logged_in? %>
@@ -115,7 +113,7 @@
         <!-- /.row -->
     <div class="col-md-12">
         <div class="pull-right text-center">
-         <%= will_paginate @posts %>
+         <%= paginate @posts, theme: "twitter-bootstrap-3" %>
         </div>
     </div>
 

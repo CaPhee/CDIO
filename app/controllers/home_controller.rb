@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-        @posts = Post.paginate(:page => params[:page]).order('created_at DESC')
+    @posts = Post.all.per_page_kaminari params[:page]
   end
 end
