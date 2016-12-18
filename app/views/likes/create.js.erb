@@ -1,0 +1,6 @@
+$('#likes-<%= "#{@like.post.id}" %>').html(
+  '<%= @like.post.likes.size %>'
+);
+$('#like-<%= "#{@like.post.id}" %>').html(
+  '<%= j render "likes/unlike", like: @like %>'
+);

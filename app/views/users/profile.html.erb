@@ -27,7 +27,7 @@
                     </div>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-nav" href="#tab4" data-toggle="tab">
-                            
+
                         <div class="visible">Favorites <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></div>
                         </button>
                     </div>
@@ -35,9 +35,9 @@
                     <button type="button" class="btn btn-nav" href="#tab3" data-toggle="tab">
                              <div class="visible">Folower <span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
                         </button>
-                    </div>                        
-                    
-                     
+                    </div>
+
+
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-nav" href="#tab5" data-toggle="tab">
                              <div class="visible">Following <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span></div>
@@ -50,24 +50,23 @@
                     </div>
                  </div>
               </div>
-            <!-- --------------- -->
         <div  class="tab-content" style= "margin-top:10px; " >
               <div class="tab-pane panel  active" id="tab1"  >
                     <div class="row">
                           <div class="col-md-6 col-md-offset-1" style= "margin-top: 20px; margin-bottom: 20px;" id="edit">
                             <%= render "profiletag" %>
-                          </div>                        
+                          </div>
                     </div>
                </div>
                <div class="tab-pane panel " id="tab2" >
                            <div class="content-container clearfix">
                                <div class="col-md-12">
-                                   <input type="search" placeholder="Search Post" class="form-control mail-search" />                           
+                                   <input type="search" placeholder="Search Post" class="form-control mail-search" />
                                    <ul class="mail-list">
                                     <% post = Post.all.where(user_id: current_user) %>
                                     <% post.each do |p| %>
                                         <li>
-                                               <%= link_to post_show_path(:id => p.id) do %>                                   
+                                               <%= link_to post_show_path(:id => p.id) do %>
                                                 <b class="mail-sender"><%= p.title %></b>
                                                <span class="mail-subject"> Posted on  <%= p.created_at.strftime("%F") %> at <%=p.created_at.strftime("%I:%M%p") %></span>
                                                <span class="mail-message-preview">You have ten more subscriptions click her...</span>
@@ -95,7 +94,7 @@
                         <h2> <br> ... Tab 6</h2>
                      </form>
                 </div>
-         </div>            
+         </div>
       </div>
 </div>
 </div>

@@ -28,13 +28,27 @@
 <p class="lead"><%=@post.content.split('.').first.upcase.html_safe %>
 </p>
     <%= @post.content.html_safe%>
+<hr>
+<i id="likes-<%= "#{@post.id}" %>">
+    <%= @post.likes.size %>
+</i>
+<i class="glyphicon glyphicon-thumbs-up"></i>
+<div id="like-<%= @post.id %>">
+    <% if logged_in? %>
+      <% if like = (Like.find_by user_id: current_user, post_id: @post.id) %>
+        <%= render "likes/unlike", like: like %>
+      <% else %>
+        <%= render "likes/like", post: @post %>
+      <% end %>
+    <% end %>
+</div>
 
 <hr>
 
         <!-- Blog Comments -->
         <div class="well">
             <h4>Leave a Comment:</h4>
-            <%= render "comments/form" %>
+            <%= render "comments/form"  if logged_in? %>
         </div>
         <hr>
         <!-- Posted Comments -->

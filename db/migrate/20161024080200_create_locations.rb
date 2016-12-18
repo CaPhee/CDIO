@@ -8,6 +8,7 @@ class CreateLocations < ActiveRecord::Migration[5.0]
       t.text :details
       t.references :user
       t.integer :owner_id
+      t.string :cover
 
       t.timestamps
     end
