@@ -2,6 +2,20 @@ class User < ApplicationRecord
   validates :email, :presence => true, :uniqueness => true, :length => { :in => 8..255 }
   has_many :posts
   has_many :comments
+  has_many :likes
+  has_many :favorite_posts, class_name: Post.name, through: :likes, source: :post
+  has_many :active_follows,
+    class_name: Follow.name,
+    foreign_key: :follower_id,
+    dependent: :destroy
+  has_many :following, through: :active_follows,
+    source: :followed
+  has_many :passive_follows,
+    class_name: Follow.name,
+    foreign_key: :followed_id,
+    dependent: :destroy
+  has_many :followers, through: :passive_follows,
+    source: :follower
   attr_accessor :protected_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {maximum: 50}
@@ -23,7 +37,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, PictureUploader
 
-  #scope :search, ->keyword {where "name LIKE ?", "%#{keyword}%"}
+  scope :search_by_name, ->keyword {where "name LIKE ?", "%#{keyword}%"}
 
   class << self
     def new_token
@@ -52,6 +66,18 @@ class User < ApplicationRecord
 
   def is_user? other
     self == other
+  end
+
+  def follow other_user
+    active_follows.create followed_id: other_user.id
+  end
+
+  def unfollow other_user
+    active_follows.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   private

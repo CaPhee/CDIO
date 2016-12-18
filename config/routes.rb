@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     get '/422', to: redirect('/422'), as: 'change'
     get '/500', to: redirect('/500')
 
-  resources :users
+  resources :users do
+    resources :following, only: :index
+    resources :followers, only: :index
+  end
   get "/profile/:id", to: "users#profile", as: "profile"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
   post "/new" => "posts#create"
   get "show/:id" => "posts#show", as: 'post_show'
   post "search" => "posts#search"
+  resources :follows, only: [:create, :destroy]
 
 
 end

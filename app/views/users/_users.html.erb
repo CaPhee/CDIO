@@ -16,15 +16,15 @@
     <%= t :failed_connection %>
   </label>
 </div>
-<div id="result_search" class="row" >
+<div id="result_search_<%= yield(:type_follow) %>" class="row" >
   <div class= "row" >
-    <% if @users.any? %>
-      <%= render @users %>
+    <% if users.any? %>
+      <%= render users %>
     <% end %>
   </div>
-  <% if @users.any? %>
+  <% if users.any? %>
       <div class="row text-center" id="will_paginate">
-        <%= will_paginate @users %>
+        <%= paginate users %>
       </div>
     <% end %>
 
