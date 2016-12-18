@@ -4,7 +4,7 @@
       <%= link_to image_tag(user.avatar, alt: "user.name", size: "100x100",
         class: "avatar"), user%>
     <% else %>
-      <%= link_to image_tag(Settings.default_user_image, alt: user.name,
+      <%= link_to image_tag("user-default.png", alt: user.name,
         size: "100x100", class: "avatar" ), user %>
     <% end %>
   </div>

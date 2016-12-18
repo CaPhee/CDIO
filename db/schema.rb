@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120161453) do
+ActiveRecord::Schema.define(version: 20161218010440) do
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "area_name"
@@ -48,12 +48,10 @@ ActiveRecord::Schema.define(version: 20161120161453) do
   end
 
   create_table "follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
+    t.integer  "follower_id"
     t.integer  "followed_id"
-    t.integer  "follow_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_follows_on_user_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,6 +61,15 @@ ActiveRecord::Schema.define(version: 20161120161453) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_images_on_post_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -131,4 +138,6 @@ ActiveRecord::Schema.define(version: 20161120161453) do
   end
 
   add_foreign_key "images", "posts"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
 end

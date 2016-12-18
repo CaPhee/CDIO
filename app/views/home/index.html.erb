@@ -1,7 +1,9 @@
 <% provide :title, "Home" %>
         <!-- Heading Row -->
         <div class="container">
-        <a class="btn btn-default pull-right" type="button" href="<%= url_for(action: 'new', controller: '/posts') %>" >New Post</a>
+        <% if logged_in? %>
+            <a class="btn btn-default pull-right" type="button" href="<%= url_for(action: 'new', controller: '/posts') %>" >New Post</a>
+        <% end %>
         <h1>Hi Everyone</h1>
     <!-- main slider carousel -->
 
@@ -37,7 +39,7 @@
                                     <%=image_tag("banner/banner8.jpg", class: "img-responsive")%>
                                 </div>
                             </div>
-                            <!-- main slider carousel nav controls --> 
+                            <!-- main slider carousel nav controls -->
                             <a class="carousel-control left" href="#myCarousel" data-slide="prev" style="line-height: 22;">‹</a>
                             <a class="carousel-control right" href="#myCarousel" data-slide="next" style="line-height: 22;">›</a>
                         </div>
@@ -91,15 +93,17 @@
                         <button class="fa fa-thumbs-o-down votes"></button> <%=n.dislike%></div>
                         <div style="clear:both;"></div>
                       </div>
-                      <%= form_for n.comments.build do |f| %>
-                      <div class="input-group">
-                        <div class="input-group-btn">
+                        <% if logged_in? %>
+                          <%= form_for n.comments.build do |f| %>
+                          <div class="input-group">
+                            <div class="input-group-btn">
 
-                            <%= f.button   fa_icon("comment-o"),class: "btn btn-primary form-control" ,type: "submit"%>
-                        </div>
-                        <%= f.text_field :comment, class: "form-control", placeholder: "Add a comment.."  %>
+                                <%= f.button   fa_icon("comment-o"),class: "btn btn-primary form-control" ,type: "submit"%>
+                            </div>
+                            <%= f.text_field :comment, class: "form-control", placeholder: "Add a comment.."  %>
+                          <% end %>
+                            </div>
                       <% end %>
-                    </div>
                  </div>
 
             </div>

@@ -21,15 +21,12 @@ class UsersController < ApplicationController
 
   def show
     store_location
-    @activities = @user.activities.paginate page: params[:page],
-      per_page: 16
+    @followers = @user.followers.search_by_name(params[:key]).page params[:page]
+    @following = @user.following.search_by_name(params[:key]).page params[:page]
     if logged_in?
-      @relationship = current_user.active_relationships.find_by(followed_id: @user.id)
-      if @relationship.blank? || @relationship.nil?
-         @relationship = current_user.active_relationships.build
-      end
+      @relationship = current_user.active_follows
+        .find_or_initialize_by followed_id: @user.id
     end
-    Lesson.unscoped @activities
   end
 
   def profile

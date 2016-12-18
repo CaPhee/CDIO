@@ -102,7 +102,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <%= render "layouts/login" %>
+    <%= render "layouts/login" unless logged_in? %>
     <div class="container" style="margin:60px 100px 0 100px;">
       <% flash.each do |message_type, message| %>
         <%= content_tag :div, message.html_safe,
